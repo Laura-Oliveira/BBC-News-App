@@ -51,7 +51,9 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.espresso.core)
+    implementation(libs.androidx.junit.ktx)
     testImplementation(libs.junit)
+    testImplementation(libs.androidx.rules)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
@@ -64,4 +66,27 @@ dependencies {
     //RecylerView & Picasso (Images)
     implementation (libs.androidx.recyclerview)
     implementation (libs.picasso)
+
+    // Espresso
+    androidTestImplementation ("androidx.test.espresso:espresso-core:3.5.1") // Versão mais recente
+    androidTestImplementation ("androidx.test.espresso:espresso-contrib:3.5.1") // Para RecyclerView e outros componentes adicionais
+    androidTestImplementation ("androidx.test.espresso:espresso-intents:3.5.1") // Para verificar Intents
+
+    // JUnit
+    testImplementation ("junit:junit:4.13.2")
+    androidTestImplementation ("androidx.test.ext:junit:1.1.5")
+
+    // Coroutines Test (opcional)
+    androidTestImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+
+    // Outros utilitários para testes Android
+    androidTestImplementation ("androidx.test:rules:1.5.0")
+    androidTestImplementation ("androidx.test:runner:1.5.2")
+    testImplementation ("androidx.arch.core:core-testing:2.1.0")
+
+
+    // Se usar Mockito ou MockK para mocks
+    testImplementation ("org.mockito:mockito-core:4.11.0")
+    androidTestImplementation ("org.mockito:mockito-android:4.11.0")
+    testImplementation ("io.mockk:mockk:1.13.5")
 }
