@@ -74,13 +74,6 @@ class NewsAdapter(
         holder.newsTitle.text = article.title
         holder.newsDescription.text = article.description ?: "No description available"
 
-//        if (!article.urlToImage.isNullOrEmpty()) {
-//            Picasso.get().load(article.urlToImage).into(holder.newsImage)
-//        } else {
-//            // Usa a imagem padrão do drawable se a URL estiver vazia ou nula
-//            holder.newsImage.setImageResource(R.mipmap.ic_bbc)
-//        }
-
         // Carregar imagem com cache
         if (!article.urlToImage.isNullOrEmpty()) {
             // Usa o cache de memória e disco com políticas adequadas
@@ -94,8 +87,16 @@ class NewsAdapter(
             holder.newsImage.setImageResource(R.mipmap.ic_bbc)
         }
 
-
-
+        // Definindo o clique do item
+//        holder.itemView.setOnClickListener {
+//            // Passando os dados para a próxima Activity
+//            val context = holder.itemView.context
+//            val intent = Intent(context, ArticleView::class.java).apply {
+//                putExtra("article_title", article.title)
+//                putExtra("article_content", article.content)
+//                putExtra("article_image", article.urlToImage)
+//            }
+//        }
         // Definindo o clique do item
         holder.itemView.setOnClickListener {
             onItemClick(article) // Chama a função de clique passando o artigo

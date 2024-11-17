@@ -2,17 +2,6 @@ package com.news.data
 
 import android.os.Parcel
 import android.os.Parcelable
-import kotlinx.parcelize.Parcelize
-
-//@Parcelize
-//data class Article(
-//    val title: String,
-//    val description: String?,
-//    val urlToImage: String?,
-//    val publishedAt: String?,
-//    val content: String?
-//) : Parcelable
-
 
 data class Article(
     val title: String?,
@@ -32,6 +21,7 @@ data class Article(
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(title)
         parcel.writeString(description)
+        parcel.writeString(publishedAt)
         parcel.writeString(content)
         parcel.writeString(urlToImage)
     }

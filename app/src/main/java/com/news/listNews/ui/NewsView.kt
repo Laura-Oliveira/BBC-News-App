@@ -2,6 +2,7 @@ package com.news.listNews.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +10,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.news.R
+import com.news.data.Article
 import com.news.listNews.domain.NewsViewModel
 import com.news.readArticle.ui.ArticleView
 
@@ -26,7 +28,7 @@ class NewsView : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         val drawable = ContextCompat.getDrawable(this, R.drawable.list_background)
-        drawable?.alpha = 235 // Valor de 0 a 255 (128 = 50% opacidade)
+        drawable?.alpha = 222 // Valor de 0 a 255 (128 = 50% opacidade)
         recyclerView.background = drawable
 
         // Configura o RecyclerView
@@ -34,6 +36,7 @@ class NewsView : AppCompatActivity() {
             // Passa o artigo selecionado para a Activity de detalhes
             val intent = Intent(this, ArticleView::class.java)
             intent.putExtra("article_key", article) // Passa o artigo para a Activity
+            Log.d("Article", "URL to Image: ${article.urlToImage}")
             startActivity(intent)
         }
         recyclerView.adapter = newsAdapter
@@ -49,9 +52,11 @@ class NewsView : AppCompatActivity() {
         // Observa a lista de artigos e atualiza o adapter
         newsViewModel.articles.observe(this) { articles ->
             recyclerView.adapter = NewsAdapter(articles) { article ->
+                Log.d("Article [NewsView]", "URL to Image: ${article.urlToImage}")
                 // Passa o artigo selecionado para a Activity de detalhes
                 val intent = Intent(this, ArticleView::class.java)
                 intent.putExtra("article_key", article)
+                Log.d("Article OBJ [NewsView]", "${article}")
                 startActivity(intent)
             }
         }
