@@ -1,6 +1,5 @@
 package com.news.listNews.data
 
-import com.news.data.RetrofitInstance
 import com.news.listNews.domain.NewsResponse
 
 class NewsRepository {

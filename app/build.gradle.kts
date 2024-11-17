@@ -50,6 +50,7 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.activity)
+    implementation(libs.androidx.espresso.core)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -59,17 +60,14 @@ dependencies {
     implementation (libs.retrofit)
     implementation (libs.converter.gson)
     implementation(libs.converter.scalars)
-
+    implementation (libs.logging.interceptor)
 
     //Glide (Images)
     implementation (libs.glide)
     annotationProcessor (libs.compiler)
     implementation (libs.glide.transformations)
 
+    //RecylerView & Picasso (Images)
     implementation (libs.androidx.recyclerview)
     implementation (libs.picasso)
-
-    implementation ("androidx.navigation:navigation-fragment-ktx:2.6.0")
-    implementation ("androidx.navigation:navigation-ui-ktx:2.6.0")
-    implementation ("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.11")
 }

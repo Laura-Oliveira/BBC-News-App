@@ -1,4 +1,4 @@
-package com.news.data
+package com.news.listNews.data
 
 import com.news.listNews.domain.NewsResponse
 import okhttp3.OkHttpClient
