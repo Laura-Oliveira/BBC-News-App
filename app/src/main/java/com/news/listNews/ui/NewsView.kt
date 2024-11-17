@@ -37,7 +37,7 @@ class NewsView : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         val drawable = ContextCompat.getDrawable(this, R.drawable.list_background)
-        drawable?.alpha = 220 // Valor de 0 a 255 (128 = 50% opacidade)
+        drawable?.alpha = 180 // Valor de 0 a 255 (128 = 50% opacidade)
         recyclerView.background = drawable
 
 //        val roundedBackground = GradientDrawable().apply {
