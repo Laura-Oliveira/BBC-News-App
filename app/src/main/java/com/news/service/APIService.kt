@@ -1,4 +1,4 @@
-package com.news.listNews.data
+package com.news.service
 
 import com.news.listNews.domain.NewsResponse
 import okhttp3.OkHttpClient
@@ -8,7 +8,8 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface APIService {
+interface APIService
+{
     @GET("top-headlines")
     suspend fun getTopHeadlines(
         @Query("country") country: String,
@@ -16,7 +17,8 @@ interface APIService {
     ): NewsResponse
 }
 
-object RetrofitInstance {
+object RetrofitInstance
+{
     private const val BASE_URL = "https://newsapi.org/v2/"
 
     private val loggingInterceptor = HttpLoggingInterceptor().apply {
@@ -27,7 +29,7 @@ object RetrofitInstance {
         .addInterceptor(loggingInterceptor)
         .build()
 
-    val api: APIService by lazy {
+    val api: APIService by lazy{
         Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(httpClient)

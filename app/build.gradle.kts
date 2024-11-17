@@ -55,17 +55,11 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-
     //Retrofit
     implementation (libs.retrofit)
     implementation (libs.converter.gson)
     implementation(libs.converter.scalars)
     implementation (libs.logging.interceptor)
-
-    //Glide (Images)
-    implementation (libs.glide)
-    annotationProcessor (libs.compiler)
-    implementation (libs.glide.transformations)
 
     //RecylerView & Picasso (Images)
     implementation (libs.androidx.recyclerview)

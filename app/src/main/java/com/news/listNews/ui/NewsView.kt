@@ -10,17 +10,17 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.news.R
-import com.news.data.Article
 import com.news.listNews.domain.NewsViewModel
 import com.news.readArticle.ui.ArticleView
 
-class NewsView : AppCompatActivity() {
-
-    private val newsViewModel: NewsViewModel by viewModels() // ViewModel
+class NewsView : AppCompatActivity()
+{
+    private val newsViewModel: NewsViewModel by viewModels()
     private lateinit var recyclerView: RecyclerView
     private val apiKey = "e549e272c92a425fb12b98713a4dc605"
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?)
+    {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.news)
 
@@ -33,27 +33,23 @@ class NewsView : AppCompatActivity() {
 
         // Configura o RecyclerView
         val newsAdapter = NewsAdapter(emptyList()) { article ->
-            // Passa o artigo selecionado para a Activity de detalhes
+            // Send the selected article obj info to the next screen
             val intent = Intent(this, ArticleView::class.java)
-            intent.putExtra("article_key", article) // Passa o artigo para a Activity
+            intent.putExtra("article_key", article)
             Log.d("Article", "URL to Image: ${article.urlToImage}")
             startActivity(intent)
         }
         recyclerView.adapter = newsAdapter
 
-        // Observar a lista de artigos na ViewModel
         observeViewModel()
-
-        // Fazer a chamada para buscar as notícias
         newsViewModel.getTopHeadlines("us", apiKey)
     }
 
-    private fun observeViewModel() {
-        // Observa a lista de artigos e atualiza o adapter
+    private fun observeViewModel()
+    {
         newsViewModel.articles.observe(this) { articles ->
             recyclerView.adapter = NewsAdapter(articles) { article ->
                 Log.d("Article [NewsView]", "URL to Image: ${article.urlToImage}")
-                // Passa o artigo selecionado para a Activity de detalhes
                 val intent = Intent(this, ArticleView::class.java)
                 intent.putExtra("article_key", article)
                 Log.d("Article OBJ [NewsView]", "${article}")
@@ -61,38 +57,43 @@ class NewsView : AppCompatActivity() {
             }
         }
 
-        // Observa mensagens de erro e exibe um Toast
         newsViewModel.error.observe(this) { errorMessage ->
             Toast.makeText(this, "Error: $errorMessage", Toast.LENGTH_SHORT).show()
         }
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
+    override fun onSaveInstanceState(outState: Bundle)
+    {
         super.onSaveInstanceState(outState)
         newsViewModel.getTopHeadlines("us", apiKey)
     }
 
-    override fun onStart() {
+    override fun onStart()
+    {
         super.onStart()
         newsViewModel.getTopHeadlines("us", apiKey)
     }
 
-    override fun onResume() {
+    override fun onResume()
+    {
         super.onResume()
         newsViewModel.getTopHeadlines("us", apiKey)
     }
 
-    override fun onPause() {
+    override fun onPause()
+    {
         super.onPause()
         newsViewModel.getTopHeadlines("us", apiKey)
     }
 
-    override fun onDestroy() {
+    override fun onDestroy()
+    {
         super.onDestroy()
         newsViewModel.getTopHeadlines("us", apiKey)
     }
 
-    override fun onRestart() {
+    override fun onRestart()
+    {
         super.onRestart()
         newsViewModel.getTopHeadlines("us", apiKey)
     }

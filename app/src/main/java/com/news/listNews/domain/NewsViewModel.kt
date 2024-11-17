@@ -20,26 +20,28 @@ class NewsViewModel : ViewModel()
 
     private val TAG = "NewsViewModel"
 
-    fun getTopHeadlines(country: String, apiKey: String) {
-        viewModelScope.launch {
-            try {
+    fun getTopHeadlines(country: String, apiKey: String)
+    {
+        viewModelScope.launch{
+            try
+            {
                 // Using repository to fetch the articles
                 val response = repository.fetchTopHeadlines(country, apiKey)
                 val sortedArticles = response.articles.sortedByDescending { it.publishedAt }
 
                 // Log of published dates
                 Log.d(TAG, "Dates articles published:")
-                sortedArticles.forEach { article ->
+                sortedArticles.forEach{ article ->
                     Log.d(TAG, "Date: ${article.publishedAt}")
                 }
 
                 _articles.value = sortedArticles
-
-            } catch (e: Exception) {
+            }
+            catch (e: Exception)
+            {
                 _error.value = e.message
                 Log.e(TAG, "Error fetching headlines: ${e.message}")
             }
         }
     }
 }
-

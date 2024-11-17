@@ -9,7 +9,8 @@ data class Article(
     val publishedAt: String?,
     val content: String?,
     val urlToImage: String?
-) : Parcelable {
+) : Parcelable
+{
     constructor(parcel: Parcel) : this(
         parcel.readString(),
         parcel.readString(),
@@ -18,7 +19,8 @@ data class Article(
         parcel.readString()
     )
 
-    override fun writeToParcel(parcel: Parcel, flags: Int) {
+    override fun writeToParcel(parcel: Parcel, flags: Int)
+    {
         parcel.writeString(title)
         parcel.writeString(description)
         parcel.writeString(publishedAt)
@@ -26,17 +28,15 @@ data class Article(
         parcel.writeString(urlToImage)
     }
 
-    override fun describeContents(): Int {
-        return 0
-    }
+    override fun describeContents(): Int
+    { return 0 }
 
-    companion object CREATOR : Parcelable.Creator<Article> {
-        override fun createFromParcel(parcel: Parcel): Article {
-            return Article(parcel)
-        }
+    companion object CREATOR : Parcelable.Creator<Article>
+    {
+        override fun createFromParcel(parcel: Parcel): Article
+        { return Article(parcel) }
 
-        override fun newArray(size: Int): Array<Article?> {
-            return arrayOfNulls(size)
-        }
+        override fun newArray(size: Int): Array<Article?>
+        { return arrayOfNulls(size) }
     }
 }
