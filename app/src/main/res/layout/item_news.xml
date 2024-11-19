@@ -6,9 +6,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <!-- Box Item List -->
     <androidx.constraintlayout.widget.ConstraintLayout
         style="@style/CardContent">
 
+        <!-- Image -->
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/newsImage"
             style="@style/NewsImage"
@@ -16,6 +18,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!-- Title -->
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/newsTitle"
             style="@style/NewsTitle"
@@ -23,6 +26,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/newsImage" />
 
+        <!-- Description -->
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/newsDescription"
             style="@style/NewsDescription"

@@ -22,7 +22,7 @@ object RetrofitInstance
     private const val BASE_URL = "https://newsapi.org/v2/"
 
     private val loggingInterceptor = HttpLoggingInterceptor().apply {
-        level = HttpLoggingInterceptor.Level.BODY // Nível de log detalhado
+        level = HttpLoggingInterceptor.Level.BODY //Shows detailed log info
     }
 
     private val httpClient = OkHttpClient.Builder()

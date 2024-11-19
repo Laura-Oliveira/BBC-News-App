@@ -1,10 +1,10 @@
 <resources>
-    <!-- Estilo para o layout principal -->
+    <!-- ======================================== BOX ARTICLE =======================================  -->
     <style name="ArticleLayout">
         <item name="android:background">#0D0D0D</item>
     </style>
 
-    <!-- Estilo para as imagens -->
+    <!-- Image -->
     <style name="ArticleImage">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">200dp</item>
@@ -13,7 +13,7 @@
         <item name="android:layout_marginEnd">16dp</item>
     </style>
 
-    <!-- Estilo para os textos principais -->
+    <!-- Title -->
     <style name="ArticleTitle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -24,12 +24,22 @@
         <item name="android:textSize">24sp</item>
     </style>
 
-    <!-- Estilo para descrições e conteúdo -->
+    <!--Description -->
     <style name="ArticleBody">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginStart">30dp</item>
         <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginEnd">30dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">10pt</item>
+    </style>
+
+    <style name="Content">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">30dp</item>
+        <item name="android:layout_marginTop">24dp</item>
         <item name="android:layout_marginEnd">30dp</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">10pt</item>

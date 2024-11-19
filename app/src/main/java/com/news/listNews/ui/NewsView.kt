@@ -31,9 +31,9 @@ class NewsView : AppCompatActivity()
         drawable?.alpha = 150 // Valor de 0 a 255 (128 = 50% opacidade)
         recyclerView.background = drawable
 
-        // Configura o RecyclerView
+        // Configuration of RecyclerView
         val newsAdapter = NewsAdapter(emptyList()) { article ->
-            // Send the selected article obj info to the next screen
+            // Send the selected article object info to the next screen
             val intent = Intent(this, ArticleView::class.java)
             intent.putExtra("article_key", article)
             Log.d("Article", "URL to Image: ${article.urlToImage}")

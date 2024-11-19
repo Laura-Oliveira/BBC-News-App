@@ -34,7 +34,7 @@ class NewsAdapter(
         holder.newsTitle.text = article.title ?: ""
         holder.newsDescription.text = article.description ?: ""
 
-        // Cheks if the article was remove, if yes, clean all the fields on the item list
+        // Cheks if the article was removed, if yes, clean all the fields on the item list
         if (article.title == "Removed" && article.description == "Removed")
         {
             holder.newsTitle.text = ""
@@ -42,7 +42,6 @@ class NewsAdapter(
             holder.newsImage.visibility = View.GONE
         }
 
-        // Carrega a imagem, se houver URL
         //Load the image, if the URL is valid
         if (!article.urlToImage.isNullOrEmpty())
         {
@@ -57,6 +56,5 @@ class NewsAdapter(
        //  When the user tap a headline item, sends the article object to the next screen
         holder.itemView.setOnClickListener { onItemClick(article) }
     }
-
     override fun getItemCount() = articles.size
 }

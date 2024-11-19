@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    style="@style/ArticleLayout"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ArticleLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- Box Article -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/article"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".readArticle.ui.ArticleView">
 
+        <!-- Image -->
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/articleImage"
             style="@style/ArticleImage"
@@ -20,6 +21,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!-- Title -->
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/articleTitle"
             style="@style/ArticleTitle"
@@ -29,6 +31,7 @@
             app:layout_constraintTop_toBottomOf="@+id/articleImage"
             app:layout_constraintVertical_bias="0.5" />
 
+        <!-- Description -->
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/articleDescription"
             style="@style/ArticleBody"
@@ -36,14 +39,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/articleTitle" />
 
+        <!-- Content -->
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/articleContent"
-            style="@style/ArticleBody"
-            android:layout_marginTop="24dp"
+            style="@style/Content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/articleDescription" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
