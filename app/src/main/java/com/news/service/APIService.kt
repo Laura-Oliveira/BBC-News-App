@@ -1,6 +1,6 @@
 package com.news.service
 
-import com.news.listNews.domain.NewsResponse
+import com.news.listNews.data.News
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -14,7 +14,7 @@ interface APIService
     suspend fun getTopHeadlines(
         @Query("country") country: String,
         @Query("apiKey") apiKey: String
-    ): NewsResponse
+    ): News
 }
 
 object RetrofitInstance

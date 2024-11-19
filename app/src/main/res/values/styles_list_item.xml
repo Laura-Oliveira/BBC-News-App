@@ -1,0 +1,62 @@
+<resources>
+
+    <!-- Estilo para o ConstraintLayout principal -->
+<!--    <style name="CardView">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">match_parent</item>-->
+<!--    </style>-->
+
+<!--    &lt;!&ndash; Estilo para o RecyclerView &ndash;&gt;-->
+<!--    <style name="NewsRecyclerView">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--    </style>-->
+
+<!--    &lt;!&ndash; Estilo para a ProgressBar (caso seja descomentada no futuro) &ndash;&gt;-->
+<!--    <style name="LoadingProgressBar">-->
+<!--        <item name="android:layout_width">wrap_content</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:visibility">gone</item>-->
+<!--    </style>-->
+
+    <!-- Estilo para o ConstraintLayout dentro do CardView -->
+    <style name="CardContent">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <!-- Estilo para a imagem -->
+    <style name="NewsImage">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">250dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <!-- Estilo para o título -->
+    <style name="NewsTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Estilo para a descrição -->
+    <style name="NewsDescription">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">9pt</item>
+    </style>
+</resources>

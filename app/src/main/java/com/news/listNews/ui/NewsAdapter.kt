@@ -7,9 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.news.R
-import com.news.data.Article
-import com.squareup.picasso.MemoryPolicy
-import com.squareup.picasso.NetworkPolicy
+import com.news.readArticle.data.Article
 import com.squareup.picasso.Picasso
 
 class NewsAdapter(
@@ -33,26 +31,30 @@ class NewsAdapter(
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int)
     {
         val article = articles[position]
-        holder.newsTitle.text = article.title
-        holder.newsDescription.text = article.description ?: "No description available"
+        holder.newsTitle.text = article.title ?: ""
+        holder.newsDescription.text = article.description ?: ""
 
-        // Load the image with cache
+        // Cheks if the article was remove, if yes, clean all the fields on the item list
+        if (article.title == "Removed" && article.description == "Removed")
+        {
+            holder.newsTitle.text = ""
+            holder.newsDescription.text = ""
+            holder.newsImage.visibility = View.GONE
+        }
+
+        // Carrega a imagem, se houver URL
+        //Load the image, if the URL is valid
         if (!article.urlToImage.isNullOrEmpty())
         {
             Picasso.get()
                 .load(article.urlToImage)
-                .memoryPolicy(MemoryPolicy.NO_CACHE) // Impede o cache de memória (opcional, dependendo do seu caso)
-                .networkPolicy(NetworkPolicy.NO_STORE) // Impede o armazenamento no disco (opcional)
                 .into(holder.newsImage)
         }
+        //If the URL isn't valid, shows a default image
         else
-        {
-            //Set a default image if the URL is broken or empty
-            holder.newsImage.setImageResource(R.mipmap.ic_bbc)
-        }
+        { holder.newsImage.setImageResource(R.mipmap.ic_bbc) }
 
-
-        // When the user tap a headline item, sends the article object to the next screen
+       //  When the user tap a headline item, sends the article object to the next screen
         holder.itemView.setOnClickListener { onItemClick(article) }
     }
 

@@ -5,12 +5,15 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Parcelable
 import android.util.Log
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import com.news.R
-import com.news.data.Article
+import com.news.readArticle.data.Article
 import com.squareup.picasso.Picasso
 
 class ArticleView : AppCompatActivity()
@@ -36,35 +39,97 @@ class ArticleView : AppCompatActivity()
         // Observar mudanças no artigo
         articleViewModel.article.observe(this) { article ->
             article?.let {
-                Log.w("Article [ArticleView]", "Displaying article: Title = ${it.title}, Content = ${it.content}, URL = ${it.urlToImage}")
-
-                // Exibir título, conteúdo e imagem
-                val imageView: ImageView = findViewById(R.id.articleImage)
-                val titleTextView: TextView = findViewById(R.id.articleTitle)
-                val descriptionTextView:TextView = findViewById(R.id.articleDescription)
-                val contentTextView: TextView = findViewById(R.id.articleContent)
-
-                // Exibir título e conteúdo
-                titleTextView.text = it.title ?: "No title available"
-                descriptionTextView.text = it.description ?: "No content available"
-                contentTextView.text = it.content ?: "No content available"
-                val imageUrl = it.urlToImage
-                Log.d("Article [ArticleView]", "Image UR Received: ${it.urlToImage}")
-
-                // Load the Imagem from URL
-                imageUrl?.let { url ->
-                    Picasso.get().load(url).into(imageView)
-                } ?: run{
-                    //If the activity doesn't receive a valid URL, load a default image
-                    imageView.setImageResource(R.drawable.bbc)
+                // Se o artigo foi removido, não exibe nada
+                if (article.title == "Removed" && article.description == "Removed") {
+                    findViewById<TextView>(R.id.articleTitle).visibility = View.GONE
+                    findViewById<TextView>(R.id.articleDescription).visibility = View.GONE
+                    findViewById<ImageView>(R.id.articleImage).visibility = View.GONE
                 }
+                else
+                {
+                    // Exibir título, conteúdo e imagem
+                    val imageView: ImageView = findViewById(R.id.articleImage)
+                    val titleTextView: TextView = findViewById(R.id.articleTitle)
+                    val descriptionTextView: TextView = findViewById(R.id.articleDescription)
+                    val contentTextView: TextView = findViewById(R.id.articleContent)
 
+                    // Exibir título e conteúdo
+                    titleTextView.text = it.title ?: "No title available"
+                    descriptionTextView.text = it.description ?: "No content available"
+                    contentTextView.text = it.content ?: "No content available"
+                    val imageUrl = it.urlToImage
+                    Log.d("Article [ArticleView]", "Image UR Received: ${it.urlToImage}")
+
+                    // Load the Image from URL
+                    imageUrl?.let { url ->
+                        //If the URL is valid and exists a image, shows it
+                        if(!article.urlToImage.isNullOrEmpty())
+                        { Picasso.get().load(url).into(imageView) }
+
+                        //If article is null or empty, doesn't show the image
+                        else
+                        { findViewById<ImageView>(R.id.articleImage).visibility = View.GONE }
+                    } ?: run {
+                        //If the url is invalid, and the article was removed, doesn't show the image
+                        if(article.title == "Removed" || article.description == "Removed")
+                        {
+                            findViewById<ImageView>(R.id.articleImage).visibility = View.GONE
+                        }
+
+                        // If the activity doesn't receive a valid URL, load a default image
+                        imageView.setImageResource(R.drawable.bbc)
+                    }
+                }
             } ?: run {
-                // If the Article is null, shows an error or a message
-                // findViewById<TextView>(R.id.articleTitle).text = "No article data available"
+                // Se o Artigo for nulo, mostra uma mensagem de erro
                 findViewById<TextView>(R.id.articleContent).text = "No article content available"
+                findViewById<TextView>(R.id.article).visibility = View.GONE
+                findViewById<ConstraintLayout>(R.id.itemHeadline).visibility = View.GONE
+                findViewById<TextView>(R.id.articleTitle).visibility = View.GONE
+                findViewById<TextView>(R.id.articleDescription).visibility = View.GONE
+                findViewById<ImageView>(R.id.articleImage).visibility = View.GONE
             }
         }
+
+        // Observar mudanças no artigo
+//        articleViewModel.article.observe(this) { article ->
+//            article?.let {
+//                Log.w("Article [ArticleView]", "Displaying article: Title = ${it.title}, Content = ${it.content}, URL = ${it.urlToImage}")
+//
+////                // Exibir título, conteúdo e imagem
+////                val imageView: ImageView = findViewById(R.id.articleImage)
+////                val titleTextView: TextView = findViewById(R.id.articleTitle)
+////                val descriptionTextView:TextView = findViewById(R.id.articleDescription)
+////                val contentTextView: TextView = findViewById(R.id.articleContent)
+////
+////                // Exibir título e conteúdo
+////                titleTextView.text = it.title ?: "No title available"
+////                descriptionTextView.text = it.description ?: "No content available"
+////                contentTextView.text = it.content ?: "No content available"
+////                val imageUrl = it.urlToImage
+////                Log.d("Article [ArticleView]", "Image UR Received: ${it.urlToImage}")
+//
+////                // Load the Imagem from URL
+////                imageUrl?.let { url ->
+////                    Picasso.get().load(url).into(imageView)
+////                } ?: run{
+////                    //If the activity doesn't receive a valid URL, load a default image
+////                    imageView.setImageResource(R.drawable.bbc)
+////                }
+//
+//                if (article.title == "Removed" && article.description == "Removed")
+//                {
+//                    findViewById<TextView>(R.id.articleImage).visibility = View.GONE
+//                }
+//
+//            } ?: run {
+//                // If the Article is null, shows an error or a message
+//                findViewById<TextView>(R.id.articleTitle).visibility = View.GONE
+//                findViewById<TextView>(R.id.articleDescription).visibility = View.GONE
+//                findViewById<TextView>(R.id.articleImage).visibility = View.GONE
+//
+//            }
+//        }
     }
 
     //// Retrieve the Intent extension in case of API LEVEL 33+

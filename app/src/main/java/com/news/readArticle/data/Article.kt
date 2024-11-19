@@ -1,4 +1,4 @@
-package com.news.data
+package com.news.readArticle.data
 
 import android.os.Parcel
 import android.os.Parcelable

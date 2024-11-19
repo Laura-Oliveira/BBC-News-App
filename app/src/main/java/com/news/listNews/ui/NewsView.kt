@@ -28,7 +28,7 @@ class NewsView : AppCompatActivity()
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         val drawable = ContextCompat.getDrawable(this, R.drawable.list_background)
-        drawable?.alpha = 222 // Valor de 0 a 255 (128 = 50% opacidade)
+        drawable?.alpha = 150 // Valor de 0 a 255 (128 = 50% opacidade)
         recyclerView.background = drawable
 
         // Configura o RecyclerView

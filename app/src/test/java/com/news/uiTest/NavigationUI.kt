@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.test.core.app.ActivityScenario
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.rule.ActivityTestRule
-import com.news.data.Article
+import com.news.readArticle.data.Article
 import com.news.listNews.ui.NewsView
 import com.news.readArticle.ui.ArticleView
 import org.junit.Rule

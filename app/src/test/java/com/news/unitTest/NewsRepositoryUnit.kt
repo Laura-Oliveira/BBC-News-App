@@ -1,7 +1,7 @@
 package com.news.unitTest
 
-import com.news.listNews.data.NewsRepository
-import com.news.listNews.domain.NewsResponse
+import com.news.listNews.domain.NewsRepository
+import com.news.listNews.data.News
 import com.news.service.APIService
 import kotlinx.coroutines.runBlocking
 import org.junit.Test
@@ -16,7 +16,7 @@ class NewsRepositoryUnit {
     @Test
     fun testFetchTopHeadlines() = runBlocking {
         // Mock the response from APIService
-        val newsResponse = NewsResponse(
+        val newsResponse = News(
             status = "ok",
             totalResults = 10,
             articles = emptyList()

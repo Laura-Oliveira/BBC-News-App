@@ -1,7 +1,7 @@
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.news.data.Article
+import com.news.readArticle.data.Article
 
 class ArticleViewModel : ViewModel()
 {
