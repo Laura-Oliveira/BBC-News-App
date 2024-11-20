@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("kotlin-parcelize")
+    kotlin("kapt")
 }
 
 android {
@@ -36,6 +37,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
 }
 
@@ -47,16 +49,19 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
-    implementation(libs.androidx.navigation.fragment.ktx)
-    implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.espresso.core)
     implementation(libs.androidx.junit.ktx)
     implementation(libs.filament.android)
+    implementation(libs.androidx.swiperefreshlayout)
     testImplementation(libs.junit)
     testImplementation(libs.androidx.rules)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    //View Model & Data Binding
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
 
     //Retrofit
     implementation (libs.retrofit)
@@ -69,24 +74,24 @@ dependencies {
     implementation (libs.picasso)
 
     //Espresso
-    androidTestImplementation ("androidx.test.espresso:espresso-core:3.5.1") // Versão mais recente
-    androidTestImplementation ("androidx.test.espresso:espresso-contrib:3.5.1") // Para RecyclerView e outros componentes adicionais
-    androidTestImplementation ("androidx.test.espresso:espresso-intents:3.5.1") // Para verificar Intents
+    androidTestImplementation (libs.androidx.espresso.core.v351)
+    androidTestImplementation (libs.androidx.espresso.contrib)
+    androidTestImplementation (libs.androidx.espresso.intents)
 
     //JUnit
-    testImplementation ("junit:junit:4.13.2")
-    androidTestImplementation ("androidx.test.ext:junit:1.1.5")
+    testImplementation (libs.junit)
+    androidTestImplementation (libs.androidx.junit.v115)
 
     //Coroutines Test (optional)
-    androidTestImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+    androidTestImplementation (libs.kotlinx.coroutines.test)
 
     //General Utilities to Android Tests
-    androidTestImplementation ("androidx.test:rules:1.5.0")
-    androidTestImplementation ("androidx.test:runner:1.5.2")
-    testImplementation ("androidx.arch.core:core-testing:2.1.0")
+    androidTestImplementation (libs.androidx.rules.v150)
+    androidTestImplementation (libs.androidx.runner)
+    testImplementation (libs.androidx.core.testing)
 
     //Mockito | MockK
-    testImplementation ("org.mockito:mockito-core:4.11.0")
-    androidTestImplementation ("org.mockito:mockito-android:4.11.0")
-    testImplementation ("io.mockk:mockk:1.13.5")
+    testImplementation (libs.mockito.core)
+    androidTestImplementation (libs.mockito.android)
+    testImplementation (libs.mockk)
 }

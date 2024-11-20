@@ -2,44 +2,49 @@ package com.news.listNews.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.news.R
+import com.news.databinding.NewsBinding
 import com.news.listNews.domain.NewsViewModel
+import com.news.readArticle.data.Article
 import com.news.readArticle.ui.ArticleView
+import kotlinx.coroutines.flow.collectLatest
 
-class NewsView : AppCompatActivity()
-{
+class NewsView : AppCompatActivity() {
+
+    private lateinit var bindingNews: NewsBinding
     private val newsViewModel: NewsViewModel by viewModels()
-    private lateinit var recyclerView: RecyclerView
     private val apiKey = "e549e272c92a425fb12b98713a4dc605"
 
-    override fun onCreate(savedInstanceState: Bundle?)
-    {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.news)
 
-        recyclerView = findViewById(R.id.recyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        //Data Binding configuration
+        bindingNews = NewsBinding.inflate(layoutInflater)
+        setContentView(bindingNews.root)
+
+        //Associate viewModel to layout
+        bindingNews.newsViewModel = newsViewModel
+        bindingNews.lifecycleOwner = this
+
+      //  swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout)
 
         val drawable = ContextCompat.getDrawable(this, R.drawable.list_background)
         drawable?.alpha = 150 // Valor de 0 a 255 (128 = 50% opacidade)
-        recyclerView.background = drawable
+        bindingNews.recyclerView.background = drawable
 
-        // Configuration of RecyclerView
+        // Configurar RecyclerView
         val newsAdapter = NewsAdapter(emptyList()) { article ->
-            // Send the selected article object info to the next screen
-            val intent = Intent(this, ArticleView::class.java)
-            intent.putExtra("article_key", article)
-            Log.d("Article", "URL to Image: ${article.urlToImage}")
-            startActivity(intent)
+            navigateToArticle(article)
         }
-        recyclerView.adapter = newsAdapter
+        bindingNews.recyclerView.apply {
+            adapter = newsAdapter
+            layoutManager = LinearLayoutManager(this@NewsView)
+        }
 
         observeViewModel()
         newsViewModel.getTopHeadlines("us", apiKey)
@@ -48,24 +53,42 @@ class NewsView : AppCompatActivity()
     private fun observeViewModel()
     {
         newsViewModel.articles.observe(this) { articles ->
-            recyclerView.adapter = NewsAdapter(articles) { article ->
-                Log.d("Article [NewsView]", "URL to Image: ${article.urlToImage}")
+            bindingNews.recyclerView.adapter = NewsAdapter(articles) { article ->
                 val intent = Intent(this, ArticleView::class.java)
                 intent.putExtra("article_key", article)
-                Log.d("Article OBJ [NewsView]", "${article}")
                 startActivity(intent)
             }
+
+            newsViewModel.error.observe(this) { errorMessage ->
+                Toast.makeText(this, "Error: $errorMessage", Toast.LENGTH_SHORT).show()
+            }
         }
+
+//        newsViewModel.error.observe(this) { errorMessage ->
+//            swipeRefreshLayout.isRefreshing = false // Para o indicador de carregamento
+//            Toast.makeText(this, "Error: $errorMessage", Toast.LENGTH_SHORT).show()
+//        }
 
         newsViewModel.error.observe(this) { errorMessage ->
             Toast.makeText(this, "Error: $errorMessage", Toast.LENGTH_SHORT).show()
         }
     }
 
+    //Send the article info to the article screen
+    private fun navigateToArticle(article: Article)
+    {
+        val intent = Intent(this, ArticleView::class.java).apply {
+            putExtra("article_key", article)
+        }
+
+        startActivity(intent)
+    }
+
     override fun onSaveInstanceState(outState: Bundle)
     {
         super.onSaveInstanceState(outState)
         newsViewModel.getTopHeadlines("us", apiKey)
+        bindingNews.recyclerView
     }
 
     override fun onStart()

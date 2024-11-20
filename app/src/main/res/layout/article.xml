@@ -1,51 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    style="@style/ArticleLayout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Box Article -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/article"
+    <data>
+        <variable
+            name="articleViewModel"
+            type="com.news.readArticle.domain.ArticleViewModel" />
+    </data>
+
+    <ScrollView
+        style="@style/ArticleLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".readArticle.ui.ArticleView">
+        android:layout_height="match_parent">
 
-        <!-- Image -->
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/articleImage"
-            style="@style/ArticleImage"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <!-- Box Article -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/article"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".readArticle.ui.ArticleView">
 
-        <!-- Title -->
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/articleTitle"
-            style="@style/ArticleTitle"
-            app:layout_constraintBottom_toTopOf="@+id/articleDescription"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/articleImage"
-            app:layout_constraintVertical_bias="0.5" />
+            <!-- Image -->
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/articleImage"
+                style="@style/ArticleImage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Description -->
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/articleDescription"
-            style="@style/ArticleBody"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/articleTitle" />
+            <!-- Title -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/articleTitle"
+                style="@style/ArticleTitle"
+                app:layout_constraintBottom_toTopOf="@+id/articleDescription"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/articleImage"
+                app:layout_constraintVertical_bias="0.5" />
 
-        <!-- Content -->
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/articleContent"
-            style="@style/Content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/articleDescription" />
+            <!-- Description -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/articleDescription"
+                style="@style/ArticleBody"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/articleTitle" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+            <!-- Content -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/articleContent"
+                style="@style/Content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/articleDescription" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

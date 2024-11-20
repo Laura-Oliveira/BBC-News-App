@@ -1,54 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background"
-    tools:context=".listNews.ui.NewsView">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Box Headline -->
+    <data>
+        <variable
+            name="newsViewModel"
+            type="com.news.listNews.domain.NewsViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/headline"
-        style="@style/BoxHeadline"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background"
+        tools:context=".listNews.ui.NewsView">
 
-        <!-- Title -->
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/titleNews"
-            style="@style/TitleNews"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <!--    &lt;!&ndash; SwipeRefreshLayout &ndash;&gt;-->
+        <!--    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout-->
+        <!--        android:id="@+id/swipeRefreshLayout"-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="0dp"-->
+        <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--        app:layout_constraintEnd_toEndOf="parent"-->
+        <!--        app:layout_constraintStart_toStartOf="parent"-->
+        <!--        app:layout_constraintTop_toTopOf="parent">-->
+
+        <!-- Box Headline -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/headline"
+            style="@style/BoxHeadline"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Image -->
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/imgLogo"
-            android:layout_width="35sp"
-            android:layout_height="35sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            <!-- Title -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/titleNews"
+                style="@style/TitleNews"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Image -->
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imgLogo"
+                android:layout_width="35sp"
+                android:layout_height="35sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@mipmap/ic_logo_home" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- RecyclerView  -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            style="@style/RecycleView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@mipmap/ic_logo_home" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/headline">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.cardview.widget.CardView>
+        <!--    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>-->
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <!-- RecyclerView  -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        style="@style/RecycleView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headline">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-    </androidx.cardview.widget.CardView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
