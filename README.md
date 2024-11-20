@@ -9,14 +9,15 @@ The app allows you to **see a list of the top headlines of the day, and read as 
 * Kotlin;
 * Android SDK;
 * Clean Architecture + MVVM + Modularization + Feature Oriented;
+  Architecture sugested and used by Google (https://www.youtube.com/watch?v=16SwTvzDO0A&t=0s)
 * Livedata;
 * Data Binding;
 * Retrofit;
 * API REST;
 * JSON and Gson;
 * Material Design;
-* RecyclerView;
 * CardView;
+* RecyclerView;
 * Personalized design patterns created from Material Design;
 * Personalized themes (default and dark);
 * UI/UX Concepts;
@@ -44,5 +45,6 @@ The app allows you to **see a list of the top headlines of the day, and read as 
 -------------------------------------------------------------------------------------------------------------------------------------------
 
 # Future Steps
-* Dependency Injection;
-* Fingerprint identification. 
+* New Flavor;
+* Fingerprint identification;
+* Dependency Injection. 
