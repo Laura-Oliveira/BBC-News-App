@@ -21,7 +21,7 @@ class NewsViewModel : ViewModel()
 
     fun getTopHeadlines(country: String, apiKey: String)
     {
-        viewModelScope.launch{
+        viewModelScope.launch {
             try
             {
                 // Using repository to fetch the articles

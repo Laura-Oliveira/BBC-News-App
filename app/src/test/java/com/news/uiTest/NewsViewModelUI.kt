@@ -8,29 +8,31 @@ import com.news.R
 import com.news.listNews.ui.NewsView
 import org.junit.Test
 
-class NewsViewModelUI {
-
+class NewsViewModelUI
+{
     @Test
-    fun testGetTopHeadlinesSuccess() {
-        // Lança a atividade principal da tela de notícias
+    fun testGetTopHeadlinesSuccess()
+    {
+        //Initialize the NewsView
         ActivityScenario.launch(NewsView::class.java)
 
-        // Verifica se o RecyclerView está visível com os dados carregados
-        onView(withId(R.id.recyclerView)) // Substituir pelo ID real
+        //Check if the RecyclerView is visible
+        onView(withId(R.id.recyclerView))
             .check(matches(isDisplayed()))
 
-        // Verifica se um item específico está na lista (exemplo: título do artigo)
-        onView(withText("Title")) // Substituir pelo título esperado
+        //Check if the screen has at least one headline visible
+        onView(withText("Title"))
             .check(matches(isDisplayed()))
     }
 
     @Test
-    fun testGetTopHeadlinesError() {
-        // Lança a atividade principal da tela de notícias
+    fun testGetTopHeadlinesError()
+    {
+        //Initialize the NewsView
         ActivityScenario.launch(NewsView::class.java)
 
-        // Verifica se a mensagem de erro é exibida
-        onView(withText("Network Error")) // Substituir pelo texto de erro esperado
+        //Check if the message erro is showing
+        onView(withText("Network Error"))
             .check(matches(isDisplayed()))
     }
 }

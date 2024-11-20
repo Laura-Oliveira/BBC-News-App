@@ -12,9 +12,9 @@ import com.news.databinding.NewsBinding
 import com.news.listNews.domain.NewsViewModel
 import com.news.readArticle.data.Article
 import com.news.readArticle.ui.ArticleView
-import kotlinx.coroutines.flow.collectLatest
 
-class NewsView : AppCompatActivity() {
+class NewsView : AppCompatActivity()
+{
 
     private lateinit var bindingNews: NewsBinding
     private val newsViewModel: NewsViewModel by viewModels()
@@ -34,7 +34,7 @@ class NewsView : AppCompatActivity() {
       //  swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout)
 
         val drawable = ContextCompat.getDrawable(this, R.drawable.list_background)
-        drawable?.alpha = 150 // Valor de 0 a 255 (128 = 50% opacidade)
+        drawable?.alpha = 150
         bindingNews.recyclerView.background = drawable
 
         // Configurar RecyclerView

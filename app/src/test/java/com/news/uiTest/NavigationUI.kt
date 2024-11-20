@@ -7,28 +7,43 @@ import androidx.test.rule.ActivityTestRule
 import com.news.readArticle.data.Article
 import com.news.listNews.ui.NewsView
 import com.news.readArticle.ui.ArticleView
+import org.junit.Assert.assertTrue
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import androidx.test.ext.junit.runners.AndroidJUnit4
 
-@RunWith(androidx.test.ext.junit.runners.AndroidJUnit4::class)
-class NavigationUI {
-
+@RunWith(AndroidJUnit4::class)
+class NavigationUI
+{
     @get:Rule
     var activityRule = ActivityTestRule(NewsView::class.java)
 
     @Test
-    fun testNavigateToArticleView() {
+    fun testNavigateToArticleView()
+    {
+        // Launching NewsView activity
         val scenario = ActivityScenario.launch(NewsView::class.java)
 
-        // Simulating a click on a news item
-        val intent = Intent(InstrumentationRegistry.getInstrumentation().targetContext, ArticleView::class.java)
-        intent.putExtra("article_key", Article("Title", "Content", "Description", "url", "2024-01-01"))
+        // Initialize the article object
+        val article = Article("Title", "Content", "Description", "url", "2024-01-01")
 
-        // Check if the intent leads to ArticleView activity
+        // Preparing the intent with the article data
+        val intent = Intent(InstrumentationRegistry.getInstrumentation().targetContext, ArticleView::class.java)
+        intent.putExtra("article_key", article)
+
+        // Check that the intent leads to the correct ArticleView activity
         scenario.onActivity { activity ->
+            // Start the ArticleView activity with the intent
             activity.startActivity(intent)
-            assert(activity is NewsView)
+
+            // Verify if the started activity is ArticleView
+            assertTrue(activity is NewsView)
+
+            // Verify the intent contains the correct article data
+            val receivedArticle = intent.getParcelableExtra<Article>("article_key")
+            assert(receivedArticle?.title == article.title)
+            assert(receivedArticle?.content == article.content)
         }
     }
 }

@@ -1,7 +1,5 @@
 package com.news.integrationTest
 
-import android.view.View
-import android.widget.TextView
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
@@ -18,8 +16,8 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
-class NewsViewModelIntegrationTest {
-
+class NewsViewModelIntegrationTest
+{
     @get:Rule
     val activityRule = ActivityScenarioRule(NewsView::class.java)
 
@@ -27,18 +25,23 @@ class NewsViewModelIntegrationTest {
     val instantTaskExecutorRule = InstantTaskExecutorRule()
 
     @Test
-    fun testArticlesAreDisplayedInRecyclerView() = runBlocking {
-        // Aguarda até que os artigos sejam carregados e exibidos
+    fun testArticlesAreDisplayedInRecyclerView() = runBlocking{
+        //Checks if the recyclerView is visible
         onView(withId(R.id.recyclerView)).check(matches(isDisplayed()))
 
-        // Verifica se a RecyclerView contém ao menos um item
+        //Checks if RecyclerView have itens
         onView(withId(R.id.recyclerView)).check { view, _ ->
             val recyclerView = view as RecyclerView
-            assert(recyclerView.adapter?.itemCount ?: 0 > 0)
+            // A asserção garante que o RecyclerView tem itens
+            assert((recyclerView.adapter?.itemCount ?: 0) > 0)
         }
 
-        // Verifica se o título do primeiro artigo é exibido corretamente
+        //Checks if the article title is showing on the recyclerView
         onView(allOf(isDescendantOfA(withId(R.id.recyclerView)), withText("Title")))
+            .check(matches(isDisplayed()))
+
+        //Checks if the article description is is showing on the recyclerView
+        onView(withId(R.id.articleDescription))
             .check(matches(isDisplayed()))
     }
 }

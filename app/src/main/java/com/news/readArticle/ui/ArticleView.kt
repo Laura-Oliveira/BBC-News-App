@@ -7,14 +7,15 @@ import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.VIEW_MODEL_STORE_OWNER_KEY
+import androidx.core.content.ContextCompat
 import com.news.R
 import com.news.databinding.ArticleBinding
 import com.news.readArticle.data.Article
 import com.news.readArticle.domain.ArticleViewModel
 import com.squareup.picasso.Picasso
 
-class ArticleView : AppCompatActivity() {
+class ArticleView : AppCompatActivity()
+{
 
     private lateinit var bindingArticle: ArticleBinding
     private val articleViewModel: ArticleViewModel by viewModels()
@@ -29,6 +30,10 @@ class ArticleView : AppCompatActivity() {
         //Associate viewModel to layout
         bindingArticle.articleViewModel = articleViewModel
         bindingArticle.lifecycleOwner = this
+
+        val drawable = ContextCompat.getDrawable(this, R.drawable.list_background)
+        drawable?.alpha = 150
+        bindingArticle.article.background = drawable
 
         //Retrieve article info sent from homepage
         val article = intent.getParcelableExtraCompat<Article>("article_key")

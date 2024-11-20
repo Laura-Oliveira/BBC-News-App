@@ -39,6 +39,12 @@ android {
         viewBinding = true
         dataBinding = true
     }
+
+    configurations.all {
+        resolutionStrategy {
+            force("androidx.test:runner:1.6.1")
+        }
+    }
 }
 
 dependencies {

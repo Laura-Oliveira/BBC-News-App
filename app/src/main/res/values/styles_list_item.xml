@@ -40,4 +40,37 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">9pt</item>
     </style>
+
+
+    <!-- Divider Container-->
+    <style name="DividerContainer" parent="Theme.Material3.Light">
+        <!-- Dimens -->
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+
+        <!-- Position -->
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginStart">0dp</item>
+        <item name="android:layout_marginEnd">0dp</item>
+        <item name="android:orientation">horizontal</item>
+
+        <!-- Color -->
+        <item name="dividerColor">@color/black</item>
+    </style>
+
+    <!-- Line Divider (List Items) -->
+    <style name="Divider" parent="Theme.Material3.Light">
+    <!-- Dimens -->
+    <item name="android:layout_width">100dp</item>
+    <item name="android:layout_height">wrap_content</item>
+
+    <!-- Position -->
+    <item name="android:layout_marginTop">32dp</item>
+    <item name="android:layout_marginBottom">8dp</item>
+    <item name="android:layout_marginStart">16dp</item>
+    <item name="android:layout_marginEnd">16dp</item>
+
+        <!-- Color -->
+        <item name="dividerColor">@color/black</item>
+    </style>
 </resources>
