@@ -20,7 +20,8 @@ class NewsView : AppCompatActivity()
     private val newsViewModel: NewsViewModel by viewModels()
     private val apiKey = "e549e272c92a425fb12b98713a4dc605"
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?)
+    {
         super.onCreate(savedInstanceState)
 
         //Data Binding configuration

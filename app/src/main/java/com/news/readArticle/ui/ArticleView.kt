@@ -16,11 +16,11 @@ import com.squareup.picasso.Picasso
 
 class ArticleView : AppCompatActivity()
 {
-
     private lateinit var bindingArticle: ArticleBinding
     private val articleViewModel: ArticleViewModel by viewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?)
+    {
         super.onCreate(savedInstanceState)
 
         //Data Binding configuration
