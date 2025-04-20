@@ -26,20 +26,34 @@ class NewsViewModel : ViewModel()
             {
                 // Using repository to fetch the articles
                 val response = repository.fetchTopHeadlines(country, apiKey)
-                val sortedArticles = response.articles.sortedByDescending { it.publishedAt }
+                val news = response.body()
 
-                // Log of published dates
-                Log.d(TAG, "Dates articles published:")
-                sortedArticles.forEach{ article ->
-                    Log.d(TAG, "Date: ${article.publishedAt}")
+                if (response.isSuccessful)
+                {
+                    val sortedArticles = news?.articles?.sortedByDescending { it.publishedAt }
+
+                    if (!sortedArticles.isNullOrEmpty())
+                    {
+                        Log.d(TAG, "Dates articles published:")
+                        sortedArticles.forEach { article ->
+                            Log.d(TAG, "Date: ${article.publishedAt}")
+                        }
+
+                        _articles.value = sortedArticles
+                    }
+                    else {
+                        _error.value = "No articles found."
+                    }
                 }
-
-                _articles.value = sortedArticles
+                else
+                {
+                    _error.value = "API Error: ${response.code()} - ${response.message()}"
+                }
             }
             catch (e: Exception)
             {
-                _error.value = e.message
-                Log.e(TAG, "Error fetching headlines: ${e.message}")
+                _error.value = "Exception: ${e.message}"
+                Log.e(TAG, "Error fetching headlines", e)
             }
         }
     }

@@ -14,7 +14,7 @@ interface APIService
     suspend fun getTopHeadlines(
         @Query("country") country: String,
         @Query("apiKey") apiKey: String
-    ): News
+    ): retrofit2.Response<News>
 }
 
 object RetrofitInstance

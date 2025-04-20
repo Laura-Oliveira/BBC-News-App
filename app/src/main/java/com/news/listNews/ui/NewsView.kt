@@ -12,13 +12,12 @@ import com.news.databinding.NewsBinding
 import com.news.listNews.domain.NewsViewModel
 import com.news.readArticle.data.Article
 import com.news.readArticle.ui.ArticleView
+import com.news.service.Keys
 
 class NewsView : AppCompatActivity()
 {
-
     private lateinit var bindingNews: NewsBinding
     private val newsViewModel: NewsViewModel by viewModels()
-    private val apiKey = "e549e272c92a425fb12b98713a4dc605"
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -31,8 +30,6 @@ class NewsView : AppCompatActivity()
         //Associate viewModel to layout
         bindingNews.newsViewModel = newsViewModel
         bindingNews.lifecycleOwner = this
-
-      //  swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout)
 
         val drawable = ContextCompat.getDrawable(this, R.drawable.list_background)
         drawable?.alpha = 150
@@ -48,30 +45,25 @@ class NewsView : AppCompatActivity()
         }
 
         observeViewModel()
-        newsViewModel.getTopHeadlines("us", apiKey)
+       // newsViewModel.getTopHeadlines("us", Keys.APIKEY.key)
     }
 
     private fun observeViewModel()
     {
+        //fetch the news data
+        newsViewModel.getTopHeadlines("us", Keys.APIKEY.key)
+
+        //populate the recyclerView list using data binding and observer
         newsViewModel.articles.observe(this) { articles ->
             bindingNews.recyclerView.adapter = NewsAdapter(articles) { article ->
                 val intent = Intent(this, ArticleView::class.java)
                 intent.putExtra("article_key", article)
                 startActivity(intent)
             }
-
-            newsViewModel.error.observe(this) { errorMessage ->
-                Toast.makeText(this, "Error: $errorMessage", Toast.LENGTH_SHORT).show()
-            }
         }
 
-//        newsViewModel.error.observe(this) { errorMessage ->
-//            swipeRefreshLayout.isRefreshing = false // Para o indicador de carregamento
-//            Toast.makeText(this, "Error: $errorMessage", Toast.LENGTH_SHORT).show()
-//        }
-
         newsViewModel.error.observe(this) { errorMessage ->
-            Toast.makeText(this, "Error: $errorMessage", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Error NewsView: $errorMessage", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -81,44 +73,6 @@ class NewsView : AppCompatActivity()
         val intent = Intent(this, ArticleView::class.java).apply {
             putExtra("article_key", article)
         }
-
         startActivity(intent)
-    }
-
-    override fun onSaveInstanceState(outState: Bundle)
-    {
-        super.onSaveInstanceState(outState)
-        newsViewModel.getTopHeadlines("us", apiKey)
-        bindingNews.recyclerView
-    }
-
-    override fun onStart()
-    {
-        super.onStart()
-        newsViewModel.getTopHeadlines("us", apiKey)
-    }
-
-    override fun onResume()
-    {
-        super.onResume()
-        newsViewModel.getTopHeadlines("us", apiKey)
-    }
-
-    override fun onPause()
-    {
-        super.onPause()
-        newsViewModel.getTopHeadlines("us", apiKey)
-    }
-
-    override fun onDestroy()
-    {
-        super.onDestroy()
-        newsViewModel.getTopHeadlines("us", apiKey)
-    }
-
-    override fun onRestart()
-    {
-        super.onRestart()
-        newsViewModel.getTopHeadlines("us", apiKey)
     }
 }

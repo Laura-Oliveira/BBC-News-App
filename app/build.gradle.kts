@@ -80,19 +80,16 @@ dependencies {
     implementation (libs.picasso)
 
     //Espresso
-    androidTestImplementation (libs.androidx.espresso.core.v351)
     androidTestImplementation (libs.androidx.espresso.contrib)
     androidTestImplementation (libs.androidx.espresso.intents)
 
     //JUnit
     testImplementation (libs.junit)
-    androidTestImplementation (libs.androidx.junit.v115)
 
     //Coroutines Test (optional)
     androidTestImplementation (libs.kotlinx.coroutines.test)
 
     //General Utilities to Android Tests
-    androidTestImplementation (libs.androidx.rules.v150)
     androidTestImplementation (libs.androidx.runner)
     testImplementation (libs.androidx.core.testing)
 
