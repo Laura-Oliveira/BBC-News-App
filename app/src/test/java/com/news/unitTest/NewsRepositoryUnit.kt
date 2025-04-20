@@ -8,6 +8,7 @@ import org.junit.Test
 import org.mockito.Mockito
 import org.mockito.Mockito.mock
 import org.mockito.Mockito.verify
+import retrofit2.Response
 
 class NewsRepositoryUnit
 {
@@ -22,14 +23,17 @@ class NewsRepositoryUnit
             totalResults = 10,
             articles = emptyList()
         )
-        Mockito.`when`(apiService.getTopHeadlines("us", "apiKey")).thenReturn(newsResponse)
+        val response = Response.success(newsResponse)
+
+        Mockito.`when`(apiService.getTopHeadlines("us", "apiKey")).thenReturn(response)
 
         // Call the repository method
         val result = repository.fetchTopHeadlines("us", "apiKey")
 
         // Assert the result
-        assert(result.status == "ok")
-        assert(result.totalResults == 10)
+        assert(result.isSuccessful)
+        assert(result.body()?.status == "ok")
+        assert(result.body()?.totalResults == 10)
 
         // Verify that the API service was called with correct parameters
         verify(apiService).getTopHeadlines("us", "apiKey")
@@ -43,14 +47,17 @@ class NewsRepositoryUnit
             totalResults = 0,
             articles = emptyList()
         )
-        Mockito.`when`(apiService.getTopHeadlines("us", "apiKey")).thenReturn(newsResponse)
+        val response = Response.success(newsResponse)
+
+        Mockito.`when`(apiService.getTopHeadlines("us", "apiKey")).thenReturn(response)
 
         // Call the repository method
         val result = repository.fetchTopHeadlines("us", "apiKey")
 
         // Assert the result
-        assert(result.status == "ok")
-        assert(result.totalResults == 0)
+        assert(result.isSuccessful)
+        assert(result.body()?.status == "ok")
+        assert(result.body()?.totalResults == 10)
 
         // Verify that the API service was called with correct parameters
         verify(apiService).getTopHeadlines("us", "apiKey")
