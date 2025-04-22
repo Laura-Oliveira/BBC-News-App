@@ -10,12 +10,12 @@ The app allows you to **see a list of the top headlines of the day, and read as 
 * Android SDK;
 * Clean Architecture + MVVM + Modularization + Feature Oriented;
   Architecture sugested and used by Google (https://www.youtube.com/watch?v=16SwTvzDO0A&t=0s)
+* Dependency Injection (Hilt);
 * Livedata;
 * Data Binding;
 * Retrofit;
 * API REST;
 * JSON and Gson;
-* Dependency Injection (Hilt);
 * Material Design;
 * CardView;
 * RecyclerView;
