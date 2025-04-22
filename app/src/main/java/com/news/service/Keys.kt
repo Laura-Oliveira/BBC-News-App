@@ -2,5 +2,6 @@ package com.news.service
 
 enum class Keys(val key:String)
 {
-    APIKEY("942e1e51ab1e42a48d67cffc54590001")
+    APIKEY("942e1e51ab1e42a48d67cffc54590001"),
+    COUNTRY("us")
 }

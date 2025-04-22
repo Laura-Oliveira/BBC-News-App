@@ -2,7 +2,6 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("kotlin-parcelize")
-    kotlin("kapt")
 }
 
 android {
@@ -49,52 +48,130 @@ android {
 
 dependencies {
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
+    // AndroidX Core
+    implementation(libs.core.ktx)
+    implementation(libs.appcompat)
     implementation(libs.material)
-    implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.lifecycle.livedata.ktx)
-    implementation(libs.androidx.lifecycle.viewmodel.ktx)
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.espresso.core)
-    implementation(libs.androidx.junit.ktx)
+    implementation(libs.swiperefreshlayout)
+    implementation(libs.constraintlayout)
+    implementation(libs.activity)
+
+    // Filament
     implementation(libs.filament.android)
-    implementation(libs.androidx.swiperefreshlayout)
-    testImplementation(libs.junit)
-    testImplementation(libs.androidx.rules)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
 
-    //View Model & Data Binding
-    implementation(libs.androidx.lifecycle.viewmodel.ktx)
-    implementation(libs.androidx.lifecycle.livedata.ktx)
+    // Kotlin & Coroutines
+    implementation(libs.kotlin.stdlib)
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.androidx.junit.ktx)
+    implementation(libs.espresso.core)
 
-    //Retrofit
-    implementation (libs.retrofit)
-    implementation (libs.converter.gson)
+    // Serialization
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.kotlinx.serialization.retrofit)
+
+    // Navigation
+    implementation(libs.navigation.fragment)
+    implementation(libs.navigation.ui)
+
+    // Lifecycle & ViewModel
+    implementation(libs.lifecycle.livedata.ktx)
+    implementation(libs.lifecycle.viewmodel.ktx)
+    implementation(libs.lifecycle.runtime.ktx)
+    implementation(libs.viewmodel.compose)
+
+    // Retrofit & OkHttp
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
     implementation(libs.converter.scalars)
-    implementation (libs.logging.interceptor)
+    implementation(libs.retrofit.rxjava)
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.urlconnection)
+    implementation(libs.logging.interceptor)
+
+    // Tests
+    testImplementation(libs.junit)
+    testImplementation(libs.core.testing)
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.mockito.inline)
+    testImplementation(libs.mockito.kotlin)
+    testImplementation(libs.mockk)
+    testImplementation(libs.turbine)
+    testImplementation(libs.jraska.livedata.testing)
+    testImplementation (libs.kotlinx.coroutines.test.v173)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.espresso.core)
+    androidTestImplementation(libs.espresso.contrib)
+    androidTestImplementation(libs.espresso.intents)
+    androidTestImplementation(libs.test.runner)
+    androidTestImplementation(libs.test.rules)
+    testImplementation(kotlin("test"))
 
     //RecylerView & Picasso (Images)
     implementation (libs.androidx.recyclerview)
     implementation (libs.picasso)
 
-    //Espresso
-    androidTestImplementation (libs.androidx.espresso.contrib)
-    androidTestImplementation (libs.androidx.espresso.intents)
+    // Hilt
+    implementation (libs.hilt.android)
+    //kapt (libs.hilt.compiler)
 
-    //JUnit
-    testImplementation (libs.junit)
 
-    //Coroutines Test (optional)
-    androidTestImplementation (libs.kotlinx.coroutines.test)
+//    // Retrofit
+//    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+//    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+//
+//    // OkHttp for logging
+//    implementation ("com.squareup.okhttp3:logging-interceptor:4.9.2")
 
-    //General Utilities to Android Tests
-    androidTestImplementation (libs.androidx.runner)
-    testImplementation (libs.androidx.core.testing)
-
-    //Mockito | MockK
-    testImplementation (libs.mockito.core)
-    androidTestImplementation (libs.mockito.android)
-    testImplementation (libs.mockk)
+//    implementation(libs.androidx.core.ktx)
+//    implementation(libs.androidx.appcompat)
+//    implementation(libs.material)
+//    implementation(libs.androidx.constraintlayout)
+//    implementation(libs.androidx.lifecycle.livedata.ktx)
+//    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+//    implementation(libs.androidx.activity)
+//    implementation(libs.androidx.espresso.core)
+//    implementation(libs.androidx.junit.ktx)
+//    implementation(libs.filament.android)
+//    implementation(libs.androidx.swiperefreshlayout)
+//    testImplementation(libs.junit)
+//    testImplementation(libs.androidx.rules)
+//    androidTestImplementation(libs.androidx.junit)
+//    androidTestImplementation(libs.androidx.espresso.core)
+//
+//    //View Model & Data Binding
+//    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+//    implementation(libs.androidx.lifecycle.livedata.ktx)
+//
+//    //Retrofit
+//    implementation (libs.retrofit)
+//    implementation (libs.converter.gson)
+//    implementation(libs.converter.scalars)
+//    implementation (libs.logging.interceptor)
+//
+//    //RecylerView & Picasso (Images)
+//    implementation (libs.androidx.recyclerview)
+//    implementation (libs.picasso)
+//
+//    //Espresso
+//    androidTestImplementation (libs.androidx.espresso.contrib)
+//    androidTestImplementation (libs.androidx.espresso.intents)
+//
+//    //JUnit
+//    testImplementation (libs.junit)
+//
+//    //Coroutines Test (optional)
+//    androidTestImplementation (libs.kotlinx.coroutines.test)
+//
+//    //General Utilities to Android Tests
+//    androidTestImplementation (libs.androidx.runner)
+//    testImplementation (libs.androidx.core.testing)
+//
+//    //Mockito | MockK
+//    testImplementation (libs.mockito.core)
+//    androidTestImplementation (libs.mockito.android)
+//    testImplementation (libs.mockk)
+//
+//    // Hilt
+//    implementation (libs.hilt.android)
+//    kapt (libs.hilt.compiler)
 }
