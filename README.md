@@ -15,6 +15,7 @@ The app allows you to **see a list of the top headlines of the day, and read as 
 * Retrofit;
 * API REST;
 * JSON and Gson;
+* Dependency Injection (Hilt);
 * Material Design;
 * CardView;
 * RecyclerView;
@@ -47,4 +48,4 @@ The app allows you to **see a list of the top headlines of the day, and read as 
 # Future Steps
 * New Flavor;
 * Fingerprint identification;
-* Dependency Injection. 
+* Dependency Injection ✅
