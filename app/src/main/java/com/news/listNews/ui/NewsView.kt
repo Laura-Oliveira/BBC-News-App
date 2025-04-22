@@ -12,7 +12,6 @@ import com.news.databinding.NewsBinding
 import com.news.listNews.domain.NewsViewModel
 import com.news.readArticle.data.Article
 import com.news.readArticle.ui.ArticleView
-import com.news.service.Keys
 import com.news.service.UiState
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -49,7 +48,6 @@ class NewsView : AppCompatActivity()
 
         observeViewModel()
         newsViewModel.fetchNews()
-       // newsViewModel.getTopHeadlines("us", Keys.APIKEY.key)
     }
 
     private fun observeViewModel()
@@ -70,30 +68,6 @@ class NewsView : AppCompatActivity()
             }
         }
     }
-
-//    private fun observeViewModel()
-//    {
-//        //fetch the news data
-//        newsViewModel.fetchNews()
-//        //newsViewModel.getTopHeadlines("us", Keys.APIKEY.key)
-//
-//        bindingNews.recyclerView.adapter = NewsAdapter(state.data) { article ->
-//                        navigateToArticle(article)
-//                    }
-//
-//        //populate the recyclerView list using data binding and observer
-//        newsViewModel.articles.observe(this) { articles ->
-//            bindingNews.recyclerView.adapter = NewsAdapter(articles) { article ->
-//                val intent = Intent(this, ArticleView::class.java)
-//                intent.putExtra("article_key", article)
-//                startActivity(intent)
-//            }
-//        }
-//
-//        newsViewModel.error.observe(this) { errorMessage ->
-//                Toast.makeText(this, "Error NewsView: $errorMessage", Toast.LENGTH_SHORT).show()
-//        }
-//    }
 
     //Send the article info to the article screen
     private fun navigateToArticle(article: Article)
