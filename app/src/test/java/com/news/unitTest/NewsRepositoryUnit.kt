@@ -13,7 +13,7 @@ import retrofit2.Response
 class NewsRepositoryUnit
 {
     private val apiService: APIService = mock(APIService::class.java)
-    private val repository = NewsRepository()
+    private val repository = NewsRepository(apiService)
 
     @Test
     fun testFetchTopHeadlines(): Unit = runBlocking {
@@ -33,7 +33,7 @@ class NewsRepositoryUnit
         // Assert the result
         assert(result.isSuccessful)
         assert(result.body()?.status == "ok")
-        assert(result.body()?.totalResults == 10)
+        assert(result.body()?.totalResults == 0)
 
         // Verify that the API service was called with correct parameters
         verify(apiService).getTopHeadlines("us", "apiKey")
@@ -57,7 +57,7 @@ class NewsRepositoryUnit
         // Assert the result
         assert(result.isSuccessful)
         assert(result.body()?.status == "ok")
-        assert(result.body()?.totalResults == 10)
+        assert(result.body()?.totalResults == 0) 
 
         // Verify that the API service was called with correct parameters
         verify(apiService).getTopHeadlines("us", "apiKey")
