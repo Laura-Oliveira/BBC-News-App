@@ -10,3 +10,4 @@ class NewsRepository @Inject constructor(private val apiService: APIService)
     suspend fun fetchTopHeadlines(country: String, apiKey: String): Response<News>
     { return apiService.getTopHeadlines(country, apiKey) }
 }
+

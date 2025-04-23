@@ -45,10 +45,12 @@ class ArticleView : AppCompatActivity()
         articleViewModel.article.observe(this) { article ->
             article?.let {
                 //If the article is removed, doesn't shows anything
-                if (article.title == "Removed" && article.description == "Removed") {
+                if (article.title == "Removed" && article.description == "Removed")
+                {
                     bindingArticle.articleTitle.visibility = View.GONE
                     bindingArticle.articleDescription.visibility = View.GONE
                     bindingArticle.articleImage.visibility = View.GONE
+                  //  showDefaultImage(bindingArticle.articleImage)
                 }
                 else
                 {
@@ -56,6 +58,8 @@ class ArticleView : AppCompatActivity()
                     bindingArticle.articleTitle.text = it.title ?: "No title available"
                     bindingArticle.articleDescription.text = it.description ?: "No content available"
                     bindingArticle.articleContent.text = it.content ?: "No content available"
+                  //  showDefaultImage(bindingArticle.articleImage)
+                    bindingArticle.articleImage.visibility = View.VISIBLE
                     Log.d("Article [ArticleView]", "Image UR Received: ${it.urlToImage}")
 
                     it.urlToImage?.let { url ->
@@ -66,8 +70,9 @@ class ArticleView : AppCompatActivity()
                         //If article is null or empty, doesn't show the image
                         else
                         { bindingArticle.articleImage.setImageResource(R.drawable.bbc) }
-                    } ?: run { bindingArticle.articleImage.visibility = View.GONE
-                    //    bindingArticle.articleImage.setImageResource(R.drawable.bbc)
+                    } ?: run {
+                      //  bindingArticle.articleImage.visibility = View.GONE
+                        bindingArticle.articleImage.setImageResource(R.drawable.bbc)
                     }
                 }
             } ?: run {
@@ -82,8 +87,10 @@ class ArticleView : AppCompatActivity()
     }
 
     //Retrieve the Intent extension in case of API LEVEL 33+
-    private inline fun <reified T : Parcelable> Intent.getParcelableExtraCompat(name: String): T? {
-        return if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+    private inline fun <reified T : Parcelable> Intent.getParcelableExtraCompat(name: String): T?
+    {
+        return if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU)
+        {
             this.getParcelableExtra(name, T::class.java)
         }
         else
@@ -93,3 +100,24 @@ class ArticleView : AppCompatActivity()
         }
     }
 }
+
+
+//    private fun showDefaultImage(var bindingArticle:ArticleBinding)
+//    {
+//        bindingArticle.articleImage.visibility = View.VISIBLE
+//
+//        //Load the image, if the URL is valid
+//        val imageUrl = article.urlToImage
+//        if (!imageUrl.isNullOrBlank() && imageUrl.startsWith("http"))
+//        {
+//            Picasso.get()
+//                .load(imageUrl)
+//                .placeholder(R.drawable.bbc)
+//                .error(R.drawable.bbc)
+//                .into(bindingArticle.articleImage)
+//        }
+//        //If the URL isn't valid, shows a default image
+//        else
+//        { bindingArticle.articleImage.setImageResource(R.drawable.bbc) }
+//    }
+//}

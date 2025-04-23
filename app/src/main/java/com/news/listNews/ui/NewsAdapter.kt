@@ -42,16 +42,31 @@ class NewsAdapter(
             holder.newsImage.visibility = View.GONE
         }
 
+//        //Load the image, if the URL is valid
+//        if (!article.urlToImage.isNullOrEmpty())
+//        {
+//            Picasso.get()
+//                .load(article.urlToImage)
+//                .into(holder.newsImage)
+//        }
+//        //If the URL isn't valid, shows a default image
+//        else
+//        { holder.newsImage.setImageResource(R.mipmap.ic_bbc) }
+
         //Load the image, if the URL is valid
         if (!article.urlToImage.isNullOrEmpty())
         {
             Picasso.get()
                 .load(article.urlToImage)
+                .error(R.mipmap.ic_bbc) // Load a placeholder image in case it's an error to load the url imagem
+                .placeholder(R.mipmap.ic_bbc) // Load a placeholder image while the url is not fully loaded
                 .into(holder.newsImage)
         }
         //If the URL isn't valid, shows a default image
         else
-        { holder.newsImage.setImageResource(R.mipmap.ic_bbc) }
+        {
+            holder.newsImage.setImageResource(R.mipmap.ic_bbc)
+        }
 
        //  When the user tap a headline item, sends the article object to the next screen
         holder.itemView.setOnClickListener { onItemClick(article) }

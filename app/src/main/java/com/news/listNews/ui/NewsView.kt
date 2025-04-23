@@ -9,9 +9,12 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.news.R
 import com.news.databinding.NewsBinding
+import com.news.listNews.domain.NewsRepository
 import com.news.listNews.domain.NewsViewModel
+import com.news.listNews.domain.NewsViewModelFactory
 import com.news.readArticle.data.Article
 import com.news.readArticle.ui.ArticleView
+import com.news.service.RetrofitInstance
 import com.news.service.UiState
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -19,7 +22,10 @@ import dagger.hilt.android.AndroidEntryPoint
 class NewsView : AppCompatActivity()
 {
     private lateinit var bindingNews: NewsBinding
-    private val newsViewModel: NewsViewModel by viewModels()
+   // private val newsViewModel: NewsViewModel by viewModels()
+    private val newsViewModel: NewsViewModel by viewModels {
+        NewsViewModelFactory(NewsRepository(RetrofitInstance.api))
+    }
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -29,8 +35,10 @@ class NewsView : AppCompatActivity()
         bindingNews = NewsBinding.inflate(layoutInflater)
         setContentView(bindingNews.root)
 
+      //  val newsViewModel = ViewModelProvider(this).get(NewsViewModel::class.java)
+
         //Associate viewModel to layout
-        bindingNews.newsViewModel = newsViewModel
+    //    bindingNews.newsViewModel = newsViewModel
         bindingNews.lifecycleOwner = this
 
         val drawable = ContextCompat.getDrawable(this, R.drawable.list_background)
