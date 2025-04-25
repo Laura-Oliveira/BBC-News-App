@@ -3,7 +3,7 @@ News App is an **Android App** focused on helping people to easily **find latest
 
 The app allows you to **see a list of the top headlines of the day, and read as many articles as you wish**.
 
-💻Technology:
+💻Technology:  
 
 * Android;
 * Kotlin;
