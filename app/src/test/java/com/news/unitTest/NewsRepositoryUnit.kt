@@ -57,7 +57,7 @@ class NewsRepositoryUnit
         // Assert the result
         assert(result.isSuccessful)
         assert(result.body()?.status == "ok")
-        assert(result.body()?.totalResults == 0) 
+        assert(result.body()?.totalResults == 0)
 
         // Verify that the API service was called with correct parameters
         verify(apiService).getTopHeadlines("us", "apiKey")
