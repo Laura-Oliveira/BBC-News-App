@@ -49,3 +49,6 @@ The app allows you to **see a list of the top headlines of the day, and read as 
 * New Flavor;
 * Fingerprint identification;
 * Dependency Injection ✅
+
+
+
