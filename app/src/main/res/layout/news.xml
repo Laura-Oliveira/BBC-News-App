@@ -49,7 +49,7 @@
                 android:layout_height="35sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@mipmap/ic_logo_home" />
+                app:srcCompat="@mipmap/ic_bbc_round" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!-- RecyclerView  -->

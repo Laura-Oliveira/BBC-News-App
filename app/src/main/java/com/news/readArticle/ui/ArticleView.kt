@@ -50,7 +50,6 @@ class ArticleView : AppCompatActivity()
                     bindingArticle.articleTitle.visibility = View.GONE
                     bindingArticle.articleDescription.visibility = View.GONE
                     bindingArticle.articleImage.visibility = View.GONE
-                  //  showDefaultImage(bindingArticle.articleImage)
                 }
                 else
                 {
@@ -58,7 +57,6 @@ class ArticleView : AppCompatActivity()
                     bindingArticle.articleTitle.text = it.title ?: "No title available"
                     bindingArticle.articleDescription.text = it.description ?: "No content available"
                     bindingArticle.articleContent.text = it.content ?: "No content available"
-                  //  showDefaultImage(bindingArticle.articleImage)
                     bindingArticle.articleImage.visibility = View.VISIBLE
                     Log.d("Article [ArticleView]", "Image UR Received: ${it.urlToImage}")
 
@@ -71,12 +69,12 @@ class ArticleView : AppCompatActivity()
                         else
                         { bindingArticle.articleImage.setImageResource(R.drawable.bbc) }
                     } ?: run {
-                      //  bindingArticle.articleImage.visibility = View.GONE
+                        //If article is null or empty, load a placeholder
                         bindingArticle.articleImage.setImageResource(R.drawable.bbc)
                     }
                 }
             } ?: run {
-                // Caso o artigo seja nulo, esconder elementos
+                // If the article is null, hide the elements
                 bindingArticle.article.visibility = View.GONE
                 bindingArticle.articleTitle.visibility = View.GONE
                 bindingArticle.articleDescription.visibility = View.GONE
@@ -100,24 +98,3 @@ class ArticleView : AppCompatActivity()
         }
     }
 }
-
-
-//    private fun showDefaultImage(var bindingArticle:ArticleBinding)
-//    {
-//        bindingArticle.articleImage.visibility = View.VISIBLE
-//
-//        //Load the image, if the URL is valid
-//        val imageUrl = article.urlToImage
-//        if (!imageUrl.isNullOrBlank() && imageUrl.startsWith("http"))
-//        {
-//            Picasso.get()
-//                .load(imageUrl)
-//                .placeholder(R.drawable.bbc)
-//                .error(R.drawable.bbc)
-//                .into(bindingArticle.articleImage)
-//        }
-//        //If the URL isn't valid, shows a default image
-//        else
-//        { bindingArticle.articleImage.setImageResource(R.drawable.bbc) }
-//    }
-//}

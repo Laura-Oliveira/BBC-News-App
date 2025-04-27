@@ -1,19 +1,15 @@
 [versions]
 
 # Default
-agp = "8.9.1"
 appcompat = "1.7.0"
 coreKtx = "1.16.0"
 activity = "1.10.1"
 hiltCompiler = "2.48"
 kotlinxCoroutinesTest = "1.10.2"
-lifecycleLivedataKtx = "2.8.7"
-lifecycleViewmodelKtx = "2.8.7"
 runner = "1.6.2"
 rules = "1.6.1"
 swiperefreshlayout = "1.1.0"
 filamentAndroid = "1.17.1"
-#recyclerview = "1.4.0"
 constraintlayout = "2.2.1"
 material = "1.12.0"
 navigation = "2.8.9"
@@ -26,7 +22,6 @@ kotlinxSerialization = "1.8.1"
 # Retrofit & OkHttp
 retrofit = "2.11.0"
 okhttp = "4.12.0"
-serializationConverter = "1.0.0"
 retrofit-serialization = "1.0.0"
 
 # Lifecycle & MVVM

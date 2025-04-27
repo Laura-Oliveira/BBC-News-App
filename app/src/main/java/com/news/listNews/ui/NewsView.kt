@@ -22,7 +22,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class NewsView : AppCompatActivity()
 {
     private lateinit var bindingNews: NewsBinding
-   // private val newsViewModel: NewsViewModel by viewModels()
     private val newsViewModel: NewsViewModel by viewModels {
         NewsViewModelFactory(NewsRepository(RetrofitInstance.api))
     }
@@ -35,17 +34,16 @@ class NewsView : AppCompatActivity()
         bindingNews = NewsBinding.inflate(layoutInflater)
         setContentView(bindingNews.root)
 
-      //  val newsViewModel = ViewModelProvider(this).get(NewsViewModel::class.java)
 
         //Associate viewModel to layout
-    //    bindingNews.newsViewModel = newsViewModel
+        bindingNews.newsViewModel = newsViewModel
         bindingNews.lifecycleOwner = this
 
         val drawable = ContextCompat.getDrawable(this, R.drawable.list_background)
         drawable?.alpha = 150
         bindingNews.recyclerView.background = drawable
 
-        // Configurar RecyclerView
+        // Configure RecyclerView
         val newsAdapter = NewsAdapter(emptyList()) { article ->
             navigateToArticle(article)
         }
@@ -63,7 +61,7 @@ class NewsView : AppCompatActivity()
         newsViewModel.newsState.observe(this) { state ->
             when (state) {
                 is UiState.Loading -> {
-                    // você pode exibir um ProgressBar, se quiser
+                    // TODO: Load progress bar
                 }
                 is UiState.Success -> {
                     bindingNews.recyclerView.adapter = NewsAdapter(state.data) { article ->

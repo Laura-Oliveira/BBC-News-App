@@ -42,17 +42,6 @@ class NewsAdapter(
             holder.newsImage.visibility = View.GONE
         }
 
-//        //Load the image, if the URL is valid
-//        if (!article.urlToImage.isNullOrEmpty())
-//        {
-//            Picasso.get()
-//                .load(article.urlToImage)
-//                .into(holder.newsImage)
-//        }
-//        //If the URL isn't valid, shows a default image
-//        else
-//        { holder.newsImage.setImageResource(R.mipmap.ic_bbc) }
-
         //Load the image, if the URL is valid
         if (!article.urlToImage.isNullOrEmpty())
         {
