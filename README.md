@@ -1,5 +1,5 @@
 #  <img src="./img/logo.jpg" width="40" height="40"/> News App
-News App is an **Android App** focused on helping people to easily **find latest news from United States of America (USA)**
+BBC News App is an **Android App** focused on helping people to easily **find latest news from United States of America (USA)**
 
 The app allows you to **see a list of the top headlines of the day, and read as many articles as you wish**.
 
