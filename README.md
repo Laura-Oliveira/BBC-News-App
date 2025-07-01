@@ -3,7 +3,12 @@
 [![Build](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/Laura-Oliveira/BBC-News/actions)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Language](https://img.shields.io/badge/language-Kotlin-orange.svg)](https://kotlinlang.org/)
-[![Open Issues](https://img.shields.io/github/issues/Laura-Oliveira/BBC-News)](https://github.com/Laura-Oliveira/BBC-News/issues)
+
+[![Last Commit](https://img.shields.io/github/last-commit/Laura-Oliveira/BBC-News/main)](https://github.com/Laura-Oliveira/BBC-News/commits/main)
+[![Issues](https://img.shields.io/github/issues/Laura-Oliveira/BBC-News)](https://github.com/Laura-Oliveira/BBC-News/issues)
+
+[![Stars](https://img.shields.io/github/stars/Laura-Oliveira/BBC-News?style=social)](https://github.com/Laura-Oliveira/BBC-News/stargazers)
+[![Forks](https://img.shields.io/github/forks/Laura-Oliveira/BBC-News?style=social)](https://github.com/Laura-Oliveira/BBC-News/fork)
 
 
 An Android app that fetches and displays the latest headlines from the BBC News API.  
