@@ -1,42 +1,75 @@
-#  <img src="./img/logo.jpg" width="40" height="40"/> BBC News App
-BBC News App is an **Android App** focused on helping people to easily **find latest news from United States of America (USA)**
+# <img src="./img/logo.jpg" width="40" height="40"/> BBC News App
 
-The app allows you to **see a list of the top headlines of the day, and read as many articles as you wish**.
+[![Build](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/Laura-Oliveira/BBC-News/actions)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Language](https://img.shields.io/badge/language-Kotlin-orange.svg)](https://kotlinlang.org/)
+[![Open Issues](https://img.shields.io/github/issues/Laura-Oliveira/BBC-News)](https://github.com/Laura-Oliveira/BBC-News/issues)
 
-💻Technology:  
 
-* Android;
-* Kotlin;
-* Android SDK;
-* Dependency Injection (Hilt);
-* Clean Architecture + MVVM + Modularization + Feature Oriented;
-  Architecture sugested and used by Google (https://www.youtube.com/watch?v=16SwTvzDO0A&t=0s)
-* Livedata;
-* Data Binding;
-* Retrofit;
-* API REST;
-* JSON and Gson;
-* Material Design;
-* CardView;
-* RecyclerView;
-* Personalized design patterns created from Material Design;
-* Personalized themes (default and dark);
-* UI/UX Concepts;
-* XML & Constraintlayout;
-* Gradle (kts);
-* Libs version control using toml;
-* JUnit, Espresso and Mockhito libs for tests (Unit, UI and Integration Tests).
+An Android app that fetches and displays the latest headlines from the BBC News API.  
+Built with **Kotlin**, **MVVM architecture**, **Retrofit**, and **Clean Architecture** principles to ensure scalability, maintainability and a smooth user experience.
 
-🛠️Tools:
+---
 
-* Git/Github;
-* Android Studio Lady Bugy 2024.2.1 Patch 2;
-* Android smartphone.
+## 📱 **Features**
+- Displays the latest BBC news articles real-time
+- Clean, modern UI using Material Design guidelines
+- Modular architecture for better testability and scalability
+- Real-time API consumption with Retrofit
+- Light and dark themes
+- RecyclerView & CardView for efficient list rendering
+- Ready for testing (unit, UI and integration tests)
 
-⏱️Agile Methodology:
-* Kanban.
+---
+
+## 🛠 **Tech Stack & Architecture**
+- **Android SDK**
+- **Kotlin** – concise, safe and modern Android development
+- **MVVM (Model–View–ViewModel)** – clear separation of concerns
+- **Clean Architecture + Modularization + Feature-Oriented** – modular, maintainable and testable code
+- **Retrofit** – HTTP client to consume REST APIs
+- **Livedata & Data Binding** – reactive, maintainable UI
+- **Dependency Injection** – integrated **Hilt**
+- **JSON & Gson** – parse and display data
+- **Gradle (Kotlin DSL / kts)** – modern build scripts
+- **Libs version control using TOML**
+- **RecyclerView & Material Components** – modern UI practices
+- **Material Components & ConstraintLayout** – for modern UI
+
+---
+
+## 🎨 **UI & UX**
+- Follows **Material Design** guidelines
+- Custom design patterns
+- Light & dark themes
+- Smooth user interactions
+- XML layouts built with **ConstraintLayout**
+
+---
+
+## ✅ **Testing**
+- Unit tests, UI tests and integration tests using:
+  - **JUnit**
+  - **Espresso**
+  - **Mockito**
+
+---
+
+## 💻 **Tools Used**
+- **Android Studio Lady Bugy 2024.2.1 Patch 2**
+- **Git / GitHub** – version control and collaboration
+- Android smartphone or emulator for testing
+
+---
+
+## ⏱ **Agile Methodology**
+- **Kanban** for task tracking and delivery
+
+---
 
 ### Status: Completed.
+
+---
 
 ## Screens
 <p align="center">
