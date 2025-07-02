@@ -12,6 +12,7 @@
 
 
 An Android app that fetches and displays the latest headlines from the BBC News API.  
+
 Built with **Kotlin**, **MVVM architecture**, **Retrofit**, and **Clean Architecture** principles to ensure scalability, maintainability and a smooth user experience.
 
 ---
