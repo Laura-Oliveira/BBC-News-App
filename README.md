@@ -88,6 +88,3 @@ Built with **Kotlin**, **MVVM architecture**, **Retrofit**, and **Clean Architec
 * New Flavor;
 * Fingerprint identification;
 * Dependency Injection ✅
-
-
-
