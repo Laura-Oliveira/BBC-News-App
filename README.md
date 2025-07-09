@@ -106,7 +106,7 @@ By combining **Kotlin best practices**, solid architecture and clean UI/UX princ
 
 ---
 
-## Screens
+## 📱 Screenshots
 <p align="center">
   <img src="./img/print_1.jpg" width="250" height="500"/>
   <img src="./img/print_2.jpg" width="250" height="500"/>
