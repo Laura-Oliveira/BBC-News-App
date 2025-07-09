@@ -1,14 +1,26 @@
 # <img src="./img/logo.jpg" width="40" height="40"/> BBC News App
 
+<div align="center">
+  
 [![Build](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/Laura-Oliveira/BBC-News/actions)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Language](https://img.shields.io/badge/language-Kotlin-orange.svg)](https://kotlinlang.org/)
+![Status](https://img.shields.io/badge/Status-Complete-brightgreen)
+![Android](https://img.shields.io/badge/Android-OS-green?style=plastic&logo=android)
+![Kotlin](https://img.shields.io/badge/Kotlin-2.0.0-purple?style=plastic&logo=kotlin)
+![License](https://img.shields.io/badge/license-MIT-blue.svg?style=plastic)
 
+</div>
+
+<div align="center">
+  
 [![Last Commit](https://img.shields.io/github/last-commit/Laura-Oliveira/BBC-News/main)](https://github.com/Laura-Oliveira/BBC-News/commits/main)
 [![Issues](https://img.shields.io/github/issues/Laura-Oliveira/BBC-News)](https://github.com/Laura-Oliveira/BBC-News/issues)
-
 [![Stars](https://img.shields.io/github/stars/Laura-Oliveira/BBC-News?style=social)](https://github.com/Laura-Oliveira/BBC-News/stargazers)
 [![Forks](https://img.shields.io/github/forks/Laura-Oliveira/BBC-News?style=social)](https://github.com/Laura-Oliveira/BBC-News/fork)
+
+</div>
+
+
+---
 
 
 An Android app that fetches and displays the latest headlines from the BBC News API.  
