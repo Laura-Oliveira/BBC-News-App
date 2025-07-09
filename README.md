@@ -81,7 +81,7 @@ Built with **Kotlin**, **MVVM architecture**, **Retrofit**, and **Clean Architec
 
 ---
 
-## 🌍 **Why this project matters?**
+## 🌍 **Why this Project Matters?**
 
 This BBC News App was designed not only as a portfolio project but to **showcase real-world, production-level Android development** skills highly valued by European tech teams:
 
