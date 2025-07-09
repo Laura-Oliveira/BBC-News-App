@@ -95,9 +95,17 @@ Built with **Kotlin**, **MVVM architecture**, **Retrofit**, and **Clean Architec
   <img src="./img/print_1.jpg" width="250" height="500"/>
   <img src="./img/print_2.jpg" width="250" height="500"/>
 
--------------------------------------------------------------------------------------------------------------------------------------------
+---
 
-# Future Steps
-* New Flavor;
-* Fingerprint identification;
-* Dependency Injection ✅
+---
+
+## 💡 Want to build something together?
+📩 Message me or 👉 [**Connect on LinkedIn**](https://www.linkedin.com/in/laura-oliveira-mobile/)
+
+📩 laura.oliveira.tech@gmail.com
+
+Let’s create modern, robust and elegant Android apps that stand out in the market.
+
+---
+
+> ⭐ *Thank you for visiting! Let’s build something impactful together!*
