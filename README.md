@@ -113,7 +113,6 @@ By combining **Kotlin best practices**, solid architecture and clean UI/UX princ
 
 ---
 
-
 ## 💡 Want to build something together?
 📩 Message me or 👉 [**Connect on LinkedIn**](https://www.linkedin.com/in/laura-oliveira-mobile/)
 
