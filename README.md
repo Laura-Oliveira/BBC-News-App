@@ -97,7 +97,6 @@ Built with **Kotlin**, **MVVM architecture**, **Retrofit**, and **Clean Architec
 
 ---
 
----
 
 ## 💡 Want to build something together?
 📩 Message me or 👉 [**Connect on LinkedIn**](https://www.linkedin.com/in/laura-oliveira-mobile/)
