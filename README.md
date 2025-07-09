@@ -29,7 +29,7 @@ Built with **Kotlin**, **MVVM architecture**, **Retrofit**, and **Clean Architec
 
 ---
 
-## 📱 **Features**
+## ✨ **Features**
 - Displays the latest BBC news articles real-time
 - Clean, modern UI using Material Design guidelines
 - Modular architecture for better testability and scalability
@@ -85,7 +85,7 @@ Built with **Kotlin**, **MVVM architecture**, **Retrofit**, and **Clean Architec
 
 ---
 
-### Status: Completed.
+### ✅ Status: Completed ✔️
 
 ---
 
