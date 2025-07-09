@@ -81,6 +81,22 @@ Built with **Kotlin**, **MVVM architecture**, **Retrofit**, and **Clean Architec
 
 ---
 
+## 🌍 **Why this project matters**
+
+This BBC News App was designed not only as a portfolio project but to **showcase real-world, production-level Android development** skills highly valued by European tech teams:
+
+- ✅ **Clean Architecture & MVVM**: clear separation of concerns, better maintainability and testability  
+- 📦 **Modularization & Feature-Oriented approach**: scalable codebase ready for future growth  
+- ⚡ **Real-time data consumption**: integrating external APIs using Retrofit and parsing JSON efficiently  
+- 🎨 **Modern, consistent UI**: built with Material Design and reactive updates via LiveData & Data Binding  
+- 🔒 **Dependency Injection with Hilt**: for easier testing and decoupling  
+- 🧪 **Testing culture**: unit tests, UI tests and integration tests included in scope  
+- 🌙 **Dark & light themes**: improved accessibility and better user experience  
+
+By combining **Kotlin best practices**, solid architecture and clean UI/UX principles, this project demonstrates readiness to build scalable, maintainable and user-focused Android applications.
+
+---
+
 ## ⏱ **Agile Methodology**
 - **Kanban** for task tracking and delivery
 
