@@ -8,9 +8,9 @@
 ![Kotlin](https://img.shields.io/badge/Kotlin-2.0.0-purple?style=plastic&logo=kotlin)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg?style=plastic)
 
-</div>
+</div> 
 
-<div align="center">
+<div align="center"> 
   
 [![Last Commit](https://img.shields.io/github/last-commit/Laura-Oliveira/BBC-News/main)](https://github.com/Laura-Oliveira/BBC-News/commits/main)
 [![Issues](https://img.shields.io/github/issues/Laura-Oliveira/BBC-News)](https://github.com/Laura-Oliveira/BBC-News/issues)
