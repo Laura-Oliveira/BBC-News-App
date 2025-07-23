@@ -1,6 +1,6 @@
 # <img src="./img/logo.jpg" width="40" height="40"/> BBC News App
 
-<div align="center">
+<div align="center"> 
   
 [![Build](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/Laura-Oliveira/BBC-News/actions)
 ![Status](https://img.shields.io/badge/Status-Complete-brightgreen)
